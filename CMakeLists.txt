@@ -30,6 +30,9 @@ FIND_PACKAGE(Boost REQUIRED)
 
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src ${CMAKE_CURRENT_BINARY_DIR})
 
+# include will setup custom target to call clang tidy
+include(${CMAKE_CURRENT_SOURCE_DIR}/clang_tidy_target.cmake)
+
 # a custom target that is always built
 ADD_CUSTOM_TARGET(gitversion ALL DEPENDS git_version ) # git_version is nothing more than a unique string
 
